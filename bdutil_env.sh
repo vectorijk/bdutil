@@ -22,10 +22,10 @@
 ############### REQUIRED ENVIRONMENT VARIABLES (no defaults) ##################
 
 # A GCS bucket used for sharing generated SSH keys and GHFS configuration.
-CONFIGBUCKET=""
+CONFIGBUCKET="beam-flink-tpc-test-1"
 
 # The Google Cloud Platform text-based project-id which owns the GCE resources.
-PROJECT=""
+PROJECT="winter-justice-208300"
 
 ###############################################################################
 
@@ -35,8 +35,8 @@ PROJECT=""
 # example, to whitelist intra-cluster SSH using the cluster prefix.
 
 # GCE settings.
-GCE_MACHINE_TYPE='n1-standard-4'
-GCE_ZONE=''
+GCE_MACHINE_TYPE='n1-standard-1'
+GCE_ZONE='us-west1-b'
 # This should be a fully specified URI and will take precedence over other image
 # settings.
 GCE_IMAGE=''
@@ -65,7 +65,7 @@ PREEMPTIBLE_FRACTION=0.0
 
 # Prefix to be shared by all VM instance names in the cluster, as well as for
 # SSH configuration between the JobTracker node and the TaskTracker nodes.
-PREFIX='hadoop'
+PREFIX='beam'
 
 # The number of worker nodes in the cluster.
 NUM_WORKERS=2
@@ -234,7 +234,7 @@ HDFS_MASTER_MEMORY_FRACTION=0.4
 # before apt-get installing the JRE. Should only be used for
 # non-critical/non-sensitive deployments due to possibly omitting security
 # patches from, e.g. security.debian.org.
-STRIP_EXTERNAL_MIRRORS=false
+STRIP_EXTERNAL_MIRRORS=true
 
 # The directory permissions to set on the datanodes' local data directories,
 # used during initial configuration of HDFS as well as passed through to
@@ -246,7 +246,7 @@ HDFS_DATA_DIRS_PERM='755'
 MASTER_UI_PORTS=('50030' '50070')
 
 # If true, install JDK with compiler/tools in addition to just the JRE.
-INSTALL_JDK_DEVEL=false
+INSTALL_JDK_DEVEL=true
 
 ###############################################################################
 

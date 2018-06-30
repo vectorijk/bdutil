@@ -20,8 +20,10 @@
 
 if (( ${INSTALL_JDK_DEVEL} )); then
   echo 'Installing JDK with compiler and tools'
-  install_application "openjdk-7-jdk" "java-1.7.0-openjdk-devel"
+  echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+  apt-get update
+  apt-get -y -qq -t jessie-backports install ca-certificates-java openjdk-8-jre-headless openjdk-8-jdk
 else
   echo 'Installing minimal JRE'
-  install_application "openjdk-7-jre-headless" "java-1.7.0-openjdk"
+  install_application "openjdk-8-jre-headless" "java-1.8.0-openjdk"
 fi

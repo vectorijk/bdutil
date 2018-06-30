@@ -25,6 +25,8 @@ Bring up a cluster with Flink
 -----------------------------
 
 To bring up the Flink cluster on Google Compute Engine, execute:
+    # hadoop 2
+    ./bdutil -e hadoop2_env.sh -e extensions/flink/flink_env.sh deploy
 
     ./bdutil -e extensions/flink/flink_env.sh deploy
 
